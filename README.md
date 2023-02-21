@@ -5,16 +5,16 @@
 
 * Description
 
-This is a software that acts as a both mediator and administrator of the database (SQLite) by providing an API. The API enables the web application to communicate with the database, perform CRUD (Create, Read, Update, Delete) operations, and filter data as needed.
+This is software that acts as a both mediator and administrator of the database (SQLite) by providing an API. The API enables the web application to communicate with the database, perform CRUD (Create, Read, Update, Delete) operations, and filter data as needed.
 
-Filters include text based filters from regular columns, as well as filters using queries including foreign keys, from one to one relationships to many to many.
+Filters include text-based filters from regular columns, as well as filters using queries including foreign keys, from one-to-one relationships to many to many.
 
-In general it serves as a backend for a Star Wars web application, which implies that it is designed to provide information about the Star Wars universe, particularrly it's Films, Planets and Charcters. Therefore, the API included in this system is designed to provide access to this information, allowing the front-end web application to display it to users.
+In general, it serves as a backend for a Star Wars web application, which implies that it is designed to provide information about the Star Wars universe, particularly it's Films, Planets and Characters. Therefore, the API included in this system is designed to provide access to this information, allowing the front-end web application to display it to users.
 
-The software also includes user management. it is here that the CRUD capabilities are showcased, allowing the user to create read update and delete users. pagination features are also included in order to facilitate data collection and visualization
-Note CRUD functionalities also exist for the resources Film, Planet, and Person. however these arent used in the frontend implementation.
+The software also includes user management. it is here that the CRUD capabilities are showcased, allowing the user to create read update, and delete users. pagination features are also included to facilitate data collection and visualization
+Note CRUD functionalities also exist for the resources Film, Planet, and Person. however, these aren't used in the frontend implementation.
 
-In order to use this application, you will need to have the following installed:
+To use this application, you will need to have the following installed:
 
     Ruby: 3.1.3 (recommended)
     Rails 7.0.4.2
@@ -34,8 +34,8 @@ Configuration
 
 # Future improvements
 
-Given more time, I would've liked to include a jwt token for auth puroposes.
+Given more time, I would've liked to include a jwt token for auth purposes.
 Giving the app more security would also be a future improvement
 Including starships, species, and vehicles into the app
-making more complex filters, for example greater than or lesser than for numerical values
-expand the user functionalities and schema. It would be nice to include username, highscoere (check frontend main page) and profile picture for example
+making more complex filters, for example, greater than or lesser than for numerical values
+expand the user functionalities and schema. It would be nice to include username, high score (check frontend main page), and profile picture for example

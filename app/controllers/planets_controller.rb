@@ -35,9 +35,11 @@ class PlanetsController < ApplicationController
         page = params.fetch(:page, 1).to_i
         per_page = params.fetch(:pageCount, 20).to_i
         offset = (page - 1) * per_page
+        total_count = @planets.count
         @planets = @planets.offset(offset).limit(per_page)
-      
-        render json: @planets, include: :films
+        total_pages = (total_count / per_page.to_f).ceil
+        
+        render json: { planets: @planets, total_pages: total_pages }, include: :films
     end
       
     def get
