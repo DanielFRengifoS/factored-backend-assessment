@@ -11,7 +11,8 @@ Filters include text based filters from regular columns, as well as filters usin
 
 In general it serves as a backend for a Star Wars web application, which implies that it is designed to provide information about the Star Wars universe, particularrly it's Films, Planets and Charcters. Therefore, the API included in this system is designed to provide access to this information, allowing the front-end web application to display it to users.
 
-The software also includes user management. it is here that the CRUD capabilities are showcased, allowing the user to create read update and delete users.
+The software also includes user management. it is here that the CRUD capabilities are showcased, allowing the user to create read update and delete users. pagination features are also included in order to facilitate data collection and visualization
+Note CRUD functionalities also exist for the resources Film, Planet, and Person. however these arent used in the frontend implementation.
 
 In order to use this application, you will need to have the following installed:
 

@@ -31,6 +31,11 @@ class PlanetsController < ApplicationController
       
           @planets = @planets.where(conditions.join(' AND '), *conditions_params)
         end
+        
+        page = params.fetch(:page, 1).to_i
+        per_page = params.fetch(:pageCount, 20).to_i
+        offset = (page - 1) * per_page
+        @planets = @planets.offset(offset).limit(per_page)
       
         render json: @planets, include: :films
     end
@@ -39,4 +44,46 @@ class PlanetsController < ApplicationController
         @planet = Planet.includes(:films).find(params[:id])
         render json: @planet, include: [:films]
     end
+    
+    def post
+      @planet = Planet.new(planet_params)
+    
+      if @planet.save
+        render json: @planet, status: :created
+      else
+        render json: @planet.errors, status: :unprocessable_entity
+      end
+    end
+
+    def delete
+      @planet = Planet.find_by(id: params[:id])
+    
+      if @planet
+        @planet.destroy
+        head :no_content
+      else
+        render json: { error: 'Planet not found' }, status: :not_found
+      end
+    end
+
+    def update
+      @planet = Planet.find_by(id: params[:id])
+    
+      if @planet
+        if @planet.update(planet_params)
+          render json: @planet
+        else
+          render json: { errors: @planet.errors.full_messages }, status: :unprocessable_entity
+        end
+      else
+        render json: { error: 'Planet not found' }, status: :not_found
+      end
+    end
+    
+  private
+  
+  def planet_params
+    params.require(:planet).permit(:name, :diameter, :rotation_period, :orbital_period, :gravity, :population, :climate, :terrain, :surface_water)
+  end
+  
 end

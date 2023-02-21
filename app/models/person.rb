@@ -12,6 +12,4 @@ class Person < ApplicationRecord
     validates :mass, presence: true
     validates :gender, presence: true
     validates :skin_color, presence: true
-    validates :created, presence: true
-    validates :edited, presence: true
 end

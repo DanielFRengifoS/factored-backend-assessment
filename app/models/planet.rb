@@ -11,6 +11,4 @@ class Planet < ApplicationRecord
     validates :climate, presence: true
     validates :terrain, presence: true
     validates :surface_water, presence: true
-    validates :created, presence: true
-    validates :edited, presence: true
 end
